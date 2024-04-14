@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Management System</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Create Contract</h1>
+        <form id="contractForm">
+            <label for="contractName">Contract Name:</label>
+            <input type="text" id="contractName" name="contractName" required><br><br>
+            <label for="workerList">Select Worker:</label>
+            <select id="workerList" name="workerList" multiple></select><br><br>
+            <button type="submit">Create Contract</button>
+        </form>
+    </div>
+
+    
+    <script>// Sample list of workers
+    
+    
+    // Function to populate the worker list
+    // Function to populate the worker list
+async function populateWorkerList() {
+    try {
+        const response = await fetch('http://localhost:3000/api/worker/all');
+        const workers = await response.json();
+
+        const workerList = document.getElementById("workerList");
+        workers.forEach(worker => {
+            const option = document.createElement("option");
+            option.text = worker._id;
+            option.text = worker.name;
+            option.text = worker.mobileNumber;
+            option.text = worker.address;
+            workerList.add(option);
+        });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// Populate worker list when the page loads
+
+
+    // Function to handle form submission
+    function createContract(event) {
+        event.preventDefault();
+        
+        const contractName = document.getElementById("contractName").value;
+        const selectedWorkers = Array.from(document.querySelectorAll('#workerList option:checked')).map(option => option.value);
+    
+        // Here you can perform further actions like sending data to server, etc.
+        console.log("Contract Name:", contractName);
+        console.log("Selected Workers:", selectedWorkers);
+    }
+    
+    // Event listener for form submission
+    document.getElementById("contractForm").addEventListener("submit", createContract);
+    
+    // Populate worker list when the page loads
+    populateWorkerList();
+    </script>
+</body>
+</html>
