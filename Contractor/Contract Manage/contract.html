@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Management System</title>
+    <link rel="stylesheet" href="contract.css">
+</head>
+<body>
+    <div class="containertp">
+        <div class="social-icons">
+            <img src="./Images/image.png" class="icon">
+        </div>
+    <div class="container2">
+    <h1 onclick="openPopup()">Create Contract</h1>
+</div>
+
+<div class="container2">
+    <h1 onclick="Pop()">Add Worker</h1>
+</div>  
+    <div class="container2">
+        <h1 onclick="Pop2()">View Attendance</h1>
+</div>
+
+</div>
+<div class="container" id="popup">
+    <form id="contractForm">
+      <div>
+        <button onclick="back()">Back</button>
+      </div>
+      <h1>Create Contract</h1>
+        <div class="user-input-box">
+        <label for="name">Contract Name:</label>
+        <input type="text" id="name" name="name" required>
+        </div>
+        <div class="user-input-box">
+            <label for="Contract Number">Contract Number:</label>
+            <input type="text" id="sr_no" name="sr_no" required>
+            </div>
+            <div class="user-input-box">
+                <label for="latitude">latitude:</label>
+                <input type="text" id="latitude" name="latitude" required>
+                </div>
+                <div class="user-input-box">
+                    <label for="altitude">altitude:</label>
+                    <input type="text" id="altitude" name="altitude" required>
+                    </div>
+                    <div class="user-input-box">
+                        <label for="description">description:</label>
+                        <input type="text" id="description" name="description" required>
+                        </div>
+        <div class="form-submit-btn">
+        <input type="submit" id="submit" value="Create Contract" onclick="send()">
+        </div>
+    </form>
+</div>
+
+    <div class="container5" id="pop1">
+      <div>
+        <button onclick="back()">Back</button>
+      </div>
+      <h1>All Workers Attendance</h1>
+  
+    </div>
+    <div class="container3" id="pop">
+      <div>
+        <button onclick="back()">Back</button>
+      </div>
+        <h1>All Project Details</h1>
+        <div id="workers">
+        
+          </div>
+    </div>
+</body>
+<script src="contract.js"></script>
+</html>

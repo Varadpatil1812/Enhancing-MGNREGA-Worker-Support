@@ -5,7 +5,7 @@
     <title>Worker's Registration Form</title>
     <meta name="viewport" content="width=device-width,
       initial-scale=1.0"/>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
     
   </head>
   <body>
@@ -14,10 +14,7 @@
       <form action="#" id = "form" >
 
         <div class="main-user-info">
-          <div class="user-input-box">
-            <label for = "Face Sample"> Verification </label>
-            <button id="open-camera-btn" onclick="openCameraPopup()">Take Sample</button>
-            </div>
+          
           <div class="user-input-box">
             <label for="fullName">Full Name</label>
             <input type="text"
@@ -30,7 +27,7 @@
             <input type="text"
                     id="w_id"
                     name="w_id"
-                    placeholder="Enter Worker's Id"/>
+                    placeholder="Enter Worker's Id" />
           </div>
           <div class="user-input-box">
             <label for="mobileNumber">Mobile Number</label>
@@ -61,48 +58,60 @@
                     placeholder="Address"/>
           </div>
           <div class="user-input-box">
-        <label for="file1">Face Sample 1:</label>
-        <input type="file" name="File1" id="file1">
+            <label for="image">Face Sample 1:</label>  
+            <input type="file" id="imageInput1" name="File1">
+          </div>
+          <div class="user-input-box">
+          <label for="image">Face Sample 2:</label>  
+            <input type="file" id="imageInput2" name="File2">
+            <script>
+                
+            </script>
+            </div>
+            <div class="user-input-box">
+          <label for="image">Face Sample 3:</label>  
+            <input type="file" id="imageInput3" name="File3">
+            
         </div>
-        <div class="user-input-box">
-        <label for="file2">Face Sample 2:</label>
-        <input type="file" name="File2" id="file2">
+        <div class="gender-details-box">
+          <span class="gender-title">Gender</span>
+          <div class="gender-category">
+            <input type="radio" name="gender" id="male">
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female">
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="other">
+            <label for="other">Other</label>
+          </div>
         </div>
-        <div class="user-input-box">
-        <label for="file3">Face Sample 3:</label>
-        <input type="file" name="File3" id="file3">
-        </div>
-      
+
         <div class="form-submit-btn">
-          <input type="submit" id="submit" value="Register" onclick="send()" >
+          <input type="submit" id="submit" value="Register" onclick="send()">
          
+        </div>
         </div>
       </form> 
       
     </div>
-    <script>
-      function send() {
-        document.getElementById("form").addEventListener("submit", async function(event) {
-          event.preventDefault();
-          const formData = new FormData(this);
-          const response = await fetch("http://localhost:3000/api/worker/signup", {
-              method: "POST",
-              body: formData,
-              success: function(response) {
-                if (response.success) {
-                    // If SMS sent successfully, show pop-up message
-                    console.alert('SMS message sent successfully!');
-                } else {
-                    // Handle error scenario if needed
-                    console.alert('Failed to send SMS message!');
-                }
-            }
-          });
-          const data = await response.json();
-          console.log(data);
-      });
-    }
-  </script> 
-  </body>
-  <script src="./Open Camera/cscript.js"></script>
+    <div id="cameraPopup" class="hidden">
+      <video id="videoElement" autoplay></video><br>
+      <button id="captureBtn">Capture</button>
+  </div>
+    <div class="container1" id="popup">
+      <img src="./images/404-tick.png">
+      <h2>Thank You</h2>
+      <p>Welcome To Sharmik, Registration Successfully,
+        Your Credentials is Sent to Registed Mobile Number!!!</p>
+        <button type="button" onclick="closePopup()">OK</button>
+    </div>
+    <div class="container1" id="load">
+      <h2>Loading....</h2>
+      <h4>Please Wait for Registration!</h4>
+      
+    </div>
+   
+  
+</body>
+<script src="index.js"></script>
+
 </html>
