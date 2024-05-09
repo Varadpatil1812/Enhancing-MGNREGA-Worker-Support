@@ -12,7 +12,7 @@ function back(){
 }
 document.addEventListener("DOMContentLoaded", function() {
   // Fetch worker details from API
-  fetch('http://localhost:3000/api/worker/all')
+  fetch('https://api-production-5b4f.up.railway.app/api/worker/all')
     .then(response => response.json())
     .then(data => {
       const workersDiv = document.getElementById('workers');
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   // Example of sending a POST request using fetch
   event.preventDefault();
-   await fetch('http://localhost:3000/api/worker/addproject', {
+   await fetch('https://api-production-5b4f.up.railway.app/api/worker/addproject', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
