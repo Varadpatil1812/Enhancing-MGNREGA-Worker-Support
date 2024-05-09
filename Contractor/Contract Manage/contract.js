@@ -10,7 +10,7 @@ function send() {
     
     document.getElementById("contractForm").addEventListener("submit", async function(event) {
       const formData = new FormData(this);
-      const response = await fetch("https://mgnrega-production.up.railway.app/api/project/createProject", {
+      const response = await fetch("https://api-production-5b4f.up.railway.app/api/project/createProject", {
           method: "POST",
           body: formData
       });
@@ -39,7 +39,7 @@ function Pop2() {
 }
 document.addEventListener("DOMContentLoaded",  function() {
   // Fetch worker data from API
-   fetch('http://localhost:3000/api/project/')
+   fetch('https://api-production-5b4f.up.railway.app/api/project/')
     .then(response => response.json())
     .then(data => {
       const workersDiv = document.getElementById('workers');
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded",  function() {
 
 document.addEventListener("DOMContentLoaded",  function() {
   // Fetch worker data from API
-    fetch('http://localhost:3000/api/attendance/')
+    fetch('https://api-production-5b4f.up.railway.app/api/attendance/')
     .then(response => response.json())
     .then(data => {
       const workersDiv = document.getElementById('pop1');
